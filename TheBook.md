@@ -1,6 +1,6 @@
 ## Stacks
 
-![](stack.png)
+![](Images/stack.png)
 
 - stack is a LIFO data structure. Last-in First-out.
 - stores objects into a sort of "vertical tower"
@@ -36,7 +36,7 @@ Stack<String> stack = new Stack<>();
 
 ## Queues
 
-![](QUeue-Data-Structures.png)
+![](Images/Queue-Data-Structures.png)
 
 - queue is a FIFO data structure. First-in First-out.
 - a collection designed for holding elements prior to processing
@@ -94,7 +94,7 @@ Queue<String> queue = new LinkedList<>();
 
 ## LinkedLists
 
-![](linkedList.jpeg)
+![](Images/linkedList.jpeg)
 
 - stores nodes in: data - address
 - nodes are non-consecutive memory locations
@@ -141,7 +141,7 @@ LinkedList<String> linkedList = new LinkedList<>();
 
 ## Dynamic Arrays
 
-![](dynamicarray.png)
+![](Images/dynamicarray.png)
 
 - we can create an ArrayList to store elements
 
@@ -298,7 +298,7 @@ public class DynamicArray {
 
 `How code slows as data grows.`
 
-![](BigONotation.png)
+![](Images/BigONotation.png)
 
 - describes performance of an algorithm as the amount of data increases
 - machine independent (# of steps to completion)
@@ -306,7 +306,7 @@ public class DynamicArray {
 
 ## Linear Search
 
-![](linearSearch.png)
+![](Images/linearSearch.png)
 
 `RunTime Complexity: O(n)`
 
@@ -326,3 +326,9 @@ private static int linearSearch(int[] array, int value){
     return -1;
 }
 ```
+
+## Binary Search
+
+![](Images/bnrysrch.png)
+
+`RunTime Complexity: O(n)`
