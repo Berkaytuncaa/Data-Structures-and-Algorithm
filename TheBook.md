@@ -571,3 +571,182 @@ public class Node {
     - better if destination is on avarage far from the start
     - childeren are visited before siblings
     - more popular for games / puzzles
+
+## Recursion
+`When a thing is defined in terms of itself`
+![](Images/Recursion.png)
+
+- apply the result of a procedure to a procedure
+- a recursive method calls itself, can be a substitute for iteration
+- divide a problem into sub-problems of the same type as the original
+- commonly used with advanced sorting algorithms and navigating trees
+- `Advantages`
+    - easier to read / write
+    - easier to debug
+- `Disadvantages`
+    - sometimes slower
+    - uses more memory
+
+![](Images/Recursion2.png)
+
+``` java
+public static int fibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+}
+```
+
+## Hash Tables
+
+![](Images/HashTables.jpeg)
+
+- a data structure that stores unique keys to values
+- each key / value pair is known as entry
+- FAST insertion, look up, deletion of key / value pairs
+- not ideal for small data sets, great with large ones
+
+- `hashing`
+    - takes a key and computes an integer (formula will vary based on index number) -- key.hashCode() % capacity = index
+- `bucket`
+    - an index storage location for one or more Entries
+    - can store multiple Entries in case of a collision (linked similarly to linked list)
+- `collision`
+    - hash function generates the same index for more than one key
+    - less collisions = more efficiency
+
+## Graphs
+
+![](Images/Graphs.png)
+
+- `directed graph`
+    - a type of graph that contains ordered pairs of vertices
+    - edges represents the direction of the vertexes
+    - an arrow represents the edges
+- `undirected graph`
+    - a type of graph that contains unordered pairs of vertices
+    - edges do not represents the direction of the vertexes
+    - undirected arcs represents the edges
+
+## Adjacency Matrix
+
+![](Images/Matrix.png)
+
+- an array to store 1`s and 0`s to represent edges (2D Array)
+- '#' of rows =  '#' of unique nodes
+- '#' of columns =  '#' of unique nodes
+
+```java
+public class Graph {
+
+	ArrayList<Node> nodes;
+	int[][] matrix;
+	
+	Graph(int size){
+		nodes = new ArrayList<>();
+		matrix = new int[size][size];
+	}
+	
+	public void addNode(Node node) {
+		nodes.add(node);
+	}
+	
+	public void addEdge(int src, int dst) {
+		matrix[src][dst] = 1;
+	}
+	
+	public boolean checkEdge(int src, int dst) {
+		if(matrix[src][dst] == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public void print() {
+		System.out.print("  ");
+		for(Node node : nodes) {
+			System.out.print(node.data + " ");
+		}
+		System.out.println();
+		
+		for(int i = 0; i < matrix.length; i++) {
+			System.out.print(nodes.get(i).data + " ");
+			for(int j = 0; j < matrix[i].length; j++) {
+				System.out.print(matrix[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+}
+public class Node {
+
+	char data;
+	
+	Node(char data){
+		this.data = data;
+	}
+}
+```
+
+## Adjacency List
+
+![](Images/AList.png)
+
+- an array / arraylist of linkedlist
+- each linkedlist has a unique node at the head
+- all adjacent neighbours to that node are added to that node`s linkedlist
+
+```java
+public class Graph {
+
+	ArrayList<LinkedList<Node>> alist;
+	
+	Graph(){
+		alist = new ArrayList<>();
+	}
+	
+	public void addNode(Node node) {
+		LinkedList<Node> currentList = new LinkedList<>();
+		currentList.add(node);
+		alist.add(currentList);
+	}
+	public void addEdge(int src, int dst) {
+		LinkedList<Node> currentList = alist.get(src);
+		Node dstNode = alist.get(dst).get(0);
+		currentList.add(dstNode);
+	}
+	public boolean checkEdge(int src, int dst) {
+		LinkedList<Node> currentList = alist.get(src);
+		Node dstNode = alist.get(dst).get(0);
+		
+		for(Node node : currentList) {
+			if(node == dstNode) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public void print() {
+		for(LinkedList<Node> currentList : alist) {
+			for(Node node : currentList) {
+				System.out.print(node.data + " -> ");
+			}
+			System.out.println();
+		}
+	}	
+}
+public class Node {
+
+	char data;
+	
+	Node(char data){
+		this.data = data;
+	}
+}
+```
+
+## Tree Data Structure INFO
