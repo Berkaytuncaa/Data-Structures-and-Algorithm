@@ -331,4 +331,243 @@ private static int linearSearch(int[] array, int value){
 
 ![](Images/bnrysrch.png)
 
-`RunTime Complexity: O(n)`
+`RunTime Complexity: O(log n)`
+
+- search algorithm that finds the position of a target value within a sorted array
+- half of the array is eliminated during each "step"
+
+``` java
+private static int binarySearch(int[] array, int target){
+int low = 0;
+int high = array.length - 1;
+
+while(low <= high){
+    int mid = low + (high - low) / 2;
+    int value = array[mid];
+
+    if(value < target) low = mid + 1;
+    else if(value > target) high = mid - 1;
+    else return mid; // Element found
+    }
+}
+```
+
+## Interpolation Search
+
+![](Images/interSearch.jpeg)
+
+- `average case: O(log(log(n)))`
+- ` worst case: O(n) [values increase exponentially]`
+
+- improvement over binary search best used for "uniformly" distributed data
+- guesses where a value might be, based on calculated probe results
+-  if probe is incorrect, search area is narrowed, and a new probe is calculated
+
+``` java
+private static int interpolationSearch(int[] array, int value) {
+		
+		int high = array.length - 1;
+		int low = 0;
+		
+		while(value >= array[low] && value <= array[high] && low <= high) {
+			
+			int probe = low + (high - low) * (value - array[low]) / 
+					    (array[high] - array[low]);
+			if(array[probe] == value) {
+				return probe;
+			}
+			else if(array[probe] < value) {
+				low = probe + 1;
+			}
+			else {
+				high = probe -1;
+			}
+		}
+		
+		return -1;
+	}
+```
+
+## Depth First Search (DFS)
+
+![](Images/DFS.png)
+
+- a search algorithm for traversing a tree or graph data structure
+    - pick a route
+    - keep going until you reach a dead end, or a previously visited node
+    - backtrack to last node that has unvisited adjacent neighbours
+
+``` java
+public class Graph {
+	
+	ArrayList<Node> nodes;
+	int[][] matrix;
+	
+	Graph(int size){
+		
+		nodes = new ArrayList<>();
+		matrix = new int[size][size];
+	}
+	public void addNode(Node node) {
+		
+		nodes.add(node);
+	}	
+	public void addEdge(int src, int dst) {
+		
+		matrix[src][dst] = 1;
+	}	
+	public boolean checkEdge(int src, int dst) {
+		
+		if(matrix[src][dst] == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}	
+	public void print() {	
+		
+		System.out.print("  ");
+		for(Node node : nodes) {
+			System.out.print(node.data + " ");
+		}
+		System.out.println();
+		
+		for(int i = 0; i < matrix.length; i++) {
+			System.out.print(nodes.get(i).data + " ");
+			for(int j = 0; j < matrix[i].length; j++) {
+				System.out.print(matrix[i][j] + " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}	
+	public void depthFirstSearch(int src) {
+		boolean[] visited = new boolean[matrix.length];
+		dFSHelper(src, visited);
+	}
+	private void dFSHelper(int src, boolean[] visited) {
+		
+		if(visited[src]) {
+			return;
+		}
+		else {
+			visited[src] = true;
+			System.out.println(nodes.get(src).data + " = visited");
+		}
+		
+		for(int i = 0; i < matrix[src].length; i++) {
+			if(matrix[src][i] == 1) {
+				dFSHelper(i, visited);
+			}
+		}
+		return;
+	}
+}
+public class Node {
+
+	char data;
+	
+	Node(char data){
+		this.data = data;
+	}
+}
+```
+
+## Breadth First Search
+
+![](Images/BFS.jpeg)
+
+- a search algorithm for traversing a tree or graph data structure
+- this is done one "level" at a time, rather than one "branch" at a time
+
+``` java
+public class Graph {
+	
+	ArrayList<Node> nodes;
+	int[][] matrix;
+	
+	Graph(int size){
+		
+		nodes = new ArrayList<>();
+		matrix = new int[size][size];
+	}
+	public void addNode(Node node) {
+		
+		nodes.add(node);
+	}	
+	public void addEdge(int src, int dst) {
+		
+		matrix[src][dst] = 1;
+	}	
+	public boolean checkEdge(int src, int dst) {
+		
+		if(matrix[src][dst] == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}	
+	public void print() {	
+		
+		System.out.print("  ");
+		for(Node node : nodes) {
+			System.out.print(node.data + " ");
+		}
+		System.out.println();
+		
+		for(int i = 0; i < matrix.length; i++) {
+			System.out.print(nodes.get(i).data + " ");
+			for(int j = 0; j < matrix[i].length; j++) {
+				System.out.print(matrix[i][j] + " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}	
+	public void breadthFirstSearch(int src) {
+		
+		Queue<Integer> queue = new LinkedList<>();
+		boolean[] visited = new boolean[matrix.length];
+		
+		queue.offer(src);
+		visited[src] = true;
+		
+		while(queue.size() != 0) {
+			
+			src = queue.poll();
+			System.out.println(nodes.get(src).data + " = visited");
+			
+			for(int i = 0; i < matrix[src].length; i++) {
+				if(matrix[src][i] == 1 && !visited[i]) {
+					queue.offer(i);
+					visited[i] = true;
+				}
+			}
+		}
+	}
+}
+public class Node {
+
+	char data;
+	
+	Node(char data){
+		this.data = data;
+	}
+}
+```
+
+## BFS - DFS
+
+- `Breadth FS`
+    - traverse a graph level by level
+    - utilizes a queue
+    - better if destination is on avarage close to start
+    - siblings are visited before childeren
+- `Depth FS`
+    - traverse a graph branch by branch
+    - utilizes a stack
+    - better if destination is on avarage far from the start
+    - childeren are visited before siblings
+    - more popular for games / puzzles
