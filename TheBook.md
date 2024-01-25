@@ -304,4 +304,25 @@ public class DynamicArray {
 - machine independent (# of steps to completion)
 - ignore smaller operations O(n + 1) -> O(n)
 
-##
+## Linear Search
+
+![](linearSearch.png)
+
+`RunTime Complexity: O(n)`
+
+- iterate through a collection one element at a time
+- `Disadvantages`
+    - slow for large data sets
+- `Advantages`
+    - fast for searches of small to medium data sets
+    - does not need to be sorted
+    - usefull for data structures that do not have random access (such as LinkedLists)
+
+``` java
+private static int linearSearch(int[] array, int value){
+    for(int i = 0; i < array.lenght; i++){
+        if(array[i] == value) return i;
+    }
+    return -1;
+}
+```
