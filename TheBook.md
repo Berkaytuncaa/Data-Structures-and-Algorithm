@@ -94,3 +94,49 @@ Queue<String> queue = new LinkedList<>();
 
 ## LinkedLists
 
+![](linkedList.jpeg)
+
+- stores nodes in: data - address
+- nodes are non-consecutive memory locations
+- elements are linked using pointers
+- can mimic Stacks and Queues
+- `add(index, obj)`
+    - to add a Node
+- `remove(obj)`
+    - to remove a Node
+- `peekFirst()`
+    - to look at head
+- `addFirst()`
+    - to add to head
+- `peekLast()`
+    - to look at tail
+- `addLast()`
+    - to add to tail
+
+``` java
+LinkedList<String> linkedList = new LinkedList<>();
+
+        // Using addLast() to add elements to the tail of the list
+        linkedList.addLast("Rdr2");
+        linkedList.addLast("Skyrim");
+        linkedList.addLast("Witcher 3");
+        linkedList.addLast("Gta 6");
+
+        // Using peekFirst() to look at the head of the list
+        System.out.println("Head element is: " + linkedList.peekFirst());
+
+        // Using remove() to remove the head of the list
+        System.out.println("Removed element is: " + linkedList.remove());
+
+        // Using peekFirst() to look at the head of the list after removal
+        System.out.println("Head element after removal is: " + linkedList.peekFirst());
+
+        // Using peekLast() to look at the tail of the list
+        System.out.println("Tail element is: " + linkedList.peekLast());
+
+        // Using addFirst() to add an element to the head of the list
+        linkedList.addFirst("Cyberpunk 2077");
+        System.out.println("Head element after adding new is: " + linkedList.peekFirst());
+```
+
+## Dynamic Arrays
