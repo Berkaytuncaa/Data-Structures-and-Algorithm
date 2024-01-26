@@ -634,7 +634,7 @@ public static int fibonacci(int n) {
 
 ![](Images/Matrix.png)
 
-- an array to store 1`s and 0`s to represent edges (2D Array)
+- an array to store 1's and 0's to represent edges (2D Array)
 - '#' of rows =  '#' of unique nodes
 - '#' of columns =  '#' of unique nodes
 
@@ -750,3 +750,170 @@ public class Node {
 ```
 
 ## Tree Data Structure INFO
+
+![](Images/TDSINFO.jpeg)
+
+- tree = a non-linear data structure where nodes are organized in a hierarchy
+- `size = # of nodes`
+- `depth = # of edges below the root node`
+- `height = # of edges above furthest leaf node`
+subtree = a smaller tree held within a larger tree
+- where we see it :
+    - File explorer
+    - Databases
+    - DNS
+    - HTML DOM
+
+## Binary Search Tree
+
+![](Images/BST.webp)
+
+- a tree data structure, where each node is greater than it's left child, but less than it's right
+- `benefit:`
+    - easy to locate a node when they are in this order
+
+```java
+class Node {
+    int key;
+    Node left, right;
+
+    public Node(int item) {
+        key = item;
+        left = right = null;
+    }
+}
+
+class BinaryTree {
+    Node root;
+
+    void insert(int key) {
+        root = insertRec(root, key);
+    }
+
+    Node insertRec(Node root, int key) {
+        if (root == null) {
+            root = new Node(key);
+            return root;
+        }
+        if (key < root.key)
+            root.left = insertRec(root.left, key);
+        else if (key > root.key)
+            root.right = insertRec(root.right, key);
+
+        return root;
+    }
+
+    void inorder() {
+        inorderRec(root);
+    }
+
+    void inorderRec(Node root) {
+        if (root != null) {
+            inorderRec(root.left);
+            System.out.println(root.key);
+            inorderRec(root.right);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree();
+
+        tree.insert(50);
+        tree.insert(30);
+        tree.insert(20);
+        tree.insert(40);
+        tree.insert(70);
+        tree.insert(60);
+        tree.insert(80);
+
+        tree.inorder();
+    }
+}
+```
+
+## Tree Traversal
+
+- `In-order traversal`
+    - Left -> Root -> Right
+- `Post-order traversal`
+    - Left -> Right -> Root
+- `Pre-order traversal`
+    - Root -> Left -> Right
+
+## Bubble Sort
+
+`RunTime Complexity: O(n^2)`
+![](Images/Bubble.png)
+
+- pairs of adjacent elements are compared, and the elements swapped if not in order
+
+```java
+static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n-1; i++)
+            for (int j = 0; j < n-i-1; j++)
+                if (arr[j] > arr[j+1]) {
+                    // swap arr[j+1] and arr[j]
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+}
+```
+
+## Selection Sort
+
+`RunTime Complexity: O(n^2)`
+![](Images/Selection.png)
+
+- search through an array and keep track of the minimum value during each iteration
+- at the end of each iteration, we swap variables
+
+```java
+static void selectionSort(int[] arr) {
+        int n = arr.length;
+
+        for (int i = 0; i < n-1; i++) {
+            int min_idx = i;
+            for (int j = i+1; j < n; j++)
+                if (arr[j] < arr[min_idx])
+                    min_idx = j;
+
+            // Swap the found minimum element with the first element
+            int temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
+        }
+}
+```
+
+## Insertion Sort
+
+`RunTime Complexity: O(n^2)`
+![](Images/Insertion.png)
+
+- after comparing elements to the left, shift elements to the right to make room to insert a value
+
+```java
+static void insertionSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 1; i < n; ++i) {
+            int key = arr[i];
+            int j = i - 1;
+
+            // Move elements of arr[0..i-1], that are greater than key, to one position ahead of their current position
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+        }
+}
+```
+
+## Merge Sort
+
+`RunTime Complexity: O(n log(n)) - O(n^2)`
+![](Images/MergeSort.png)
