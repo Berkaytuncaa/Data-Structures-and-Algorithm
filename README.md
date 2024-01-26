@@ -23,6 +23,11 @@
 - `Tree Data Structure INFO`
 - `Binary Search Tree`
 - `Tree Traversal`
+- `Bubble Sort`
+- `Selection Sort`
+- `Insertion Sort`
+- `Merge Sort`
+- `Quick Sort`
 ##
 - `BroCode - Data Structures and Algorithms` video has taken as a reference
 - I have added images and codes so that we can have more understanding of the concepts
