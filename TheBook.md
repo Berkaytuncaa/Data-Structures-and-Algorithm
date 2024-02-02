@@ -4,7 +4,7 @@
 <!-- MarkdownTOC -->
 
 1. [Stacks](#Stacks)
-2. [Queues](#Queues) </br>
+2. [Queues](#Queues)
 	- [Priority Queues](#Priority-Queues)
 4. [LinkedLists](#LinkedLists)
 5. [Dynamic Arrays](#Dynamic-Arrays)
