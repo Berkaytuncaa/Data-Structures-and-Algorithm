@@ -1,3 +1,33 @@
+# Table of contents
+<details open>
+<summary><b>(click to expand or hide)</b></summary>
+<!-- MarkdownTOC -->
+
+1. [Stacks](#Stacks)
+2. [Queues](#Queues)
+	- [Priority Queues](#Priority-Queues)
+4. [LinkedLists](#LinkedLists)
+5. [Dynamic Arrays](#Dynamic-Arrays)
+6. [Big O Notation](#Big-O-Notation)
+7. [Linear Search](#Linear-Search)
+8. [Interpolation Search](#Interpolation-Search)
+9. [Depth First Search (DFS)](#Depth-First-Search-dfs)
+10. [Breadth First Search (BFS)](#Breadth-First-Search)
+11. [Recursion](#Recursion)
+12. [Hash Tables](#Hash-Tables)
+13. [Graphs](#Graphs)
+	- [Adjacency Matrix](#Adjacency-Matrix)
+	- [Adjacency List](#Adjacency-List)
+14. [Tree Data Structure INFO](#Tree-Data-Structure-INFO)
+	- [Binary Search Tree](#Binary-Search-Tree)
+15. [Bubble Sort](#Bubble-Sort)
+16. [Insertion Sort](#Insertion-Sort)
+17. [Merge Sort](#Merge-Sort)
+18. [Quick Sort](#Quick-Sort)
+
+<!-- /MarkdownTOC -->
+</details>
+
 ## Stacks
 
 ![](Images/stack.png)
