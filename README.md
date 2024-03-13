@@ -22,6 +22,7 @@
 - `Adjacency List`
 - `Tree Data Structure INFO`
 - `Binary Search Tree`
+- `The Binary Heap Structure`
 - `Tree Traversal`
 - `Bubble Sort`
 - `Selection Sort`
