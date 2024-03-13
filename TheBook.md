@@ -20,6 +20,7 @@
 	- [Adjacency List](#Adjacency-List)
 14. [Tree Data Structure INFO](#Tree-Data-Structure-INFO)
 	- [Binary Search Tree](#Binary-Search-Tree)
+	- [The Binary Heap Structure](#The-Binary-Heap-Structure)
 15. [Bubble Sort](#Bubble-Sort)
 16. [Insertion Sort](#Insertion-Sort)
 17. [Merge Sort](#Merge-Sort)
@@ -863,6 +864,38 @@ public class Main {
 }
 ```
 
+## The Binary Heap Structure
+
+![](Images/HeapStructure.png)
+
+- a special type of `Binary Search` tree
+- in which we can find the smallest (or highest) item instantly `O(1)`
+- inserting or searching an item still costs `O(log(n))`
+- especially usefull fpr implementing `Priority Queues`
+- has the same node placement rules as the binary search tree, plus an extra restriction; `a parent node must be greater (or smaller) than both it's child nodes`
+
+```java
+import java.util.PriorityQueue;
+
+public class HeapExample {
+    public static void main(String[] args) {
+        // Creating a min heap
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+        // Adding elements to the heap
+        minHeap.add(3);
+        minHeap.add(1);
+        minHeap.add(5);
+        minHeap.add(2);
+        minHeap.add(4);
+
+        // Removing elements from the heap
+        while (!minHeap.isEmpty()) {
+            System.out.println(minHeap.poll());
+        }
+    }
+}
+```
 ## Tree Traversal
 
 - `In-order traversal`

@@ -30,5 +30,6 @@
 - `Quick Sort`
 ##
 - `BroCode - Data Structures and Algorithms` video has taken as a reference
+- `Wladston Ferreira Filho - Computer Science DISTILLED` book has taken as a reference
 - I have added images and codes so that we can have more understanding of the concepts
 - Please feel free to use this repo however you like
