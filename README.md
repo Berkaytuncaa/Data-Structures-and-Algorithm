@@ -3,6 +3,7 @@
 - Most of the notes cover the very basics of regarding concept.
 - We are using JAVA language as our programming language.
 ## CONTENTS
+- `Brute Force Approach`
 - `Stacks`
 - `Queues`
 - `Priority Queues`

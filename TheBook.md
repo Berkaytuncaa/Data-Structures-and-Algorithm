@@ -3,6 +3,7 @@
 <summary><b>(click to expand or hide)</b></summary>
 <!-- MarkdownTOC -->
 
+0. [Brute Force Approach](#Brute-Force-Approach)
 1. [Stacks](#Stacks)
 2. [Queues](#Queues)
 	- [Priority Queues](#Priority-Queues)
@@ -28,6 +29,41 @@
 
 <!-- /MarkdownTOC -->
 </details>
+
+## Brute Force Approach
+
+![](Images/bruteForce.png)
+
+- known as `exhaustive search`
+- usually naive and unskilled
+- relies on the computer's sheer force
+- `sometimes` gives indeed the best possible time complexity
+``` java
+public class BruteForceExample {
+
+    public static int maxSubArraySum(int[] nums) {
+        int maxSum = Integer.MIN_VALUE;
+
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i; j < nums.length; j++) {
+                int currentSum = 0;
+                for (int k = i; k <= j; k++) {
+                    currentSum += nums[k];
+                }
+                maxSum = Math.max(maxSum, currentSum);
+            }
+        }
+
+        return maxSum;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+        int maxSum = maxSubArraySum(nums);
+        System.out.println("Maximum subarray sum is " + maxSum);
+    }
+}
+```
 
 ## Stacks
 
